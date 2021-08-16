@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -64,3 +65,10 @@ class PythonOrgSearch(unittest.TestCase):
         expected_results = ["Xiaomi Mi 8", "MacBook"]
 
         self.assertTrue(set(check_cart_items) & set(expected_results))
+=======
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
+browser = webdriver.Chrome('C:\Users\rrasi\PycharmProjects\TA\Driver\chromedriver.exe')
+browser.get("https://google.com/")
+>>>>>>> e4d8579 (veb)
