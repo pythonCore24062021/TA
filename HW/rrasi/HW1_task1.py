@@ -8,21 +8,19 @@ import time
 import unittest
 
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
-browser = webdriver.Chrome()
-browser.get("http://taqc-opencart.epizy.com/")
+
 
 class PythonOrgSearch(unittest.TestCase):
     driver = None
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
         self.driver.get("http://taqc-opencart.epizy.com/")
+
+        time.sleep(2)
 
     def tearDown(self):
         time.sleep(2)
-        # self.driver.quit()
 
     @classmethod
     def setUpClass(cls):
@@ -33,28 +31,28 @@ class PythonOrgSearch(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_search1(self):
-        element = self.driver.find_element_by_css_selector("#search > input")
-        element.send_keys("mac")
-        element.send_keys(Keys.ENTER)
-#        element.btm.click()
-        self.assertNotIn("No results found.", self.driver.page_source)
+    def checkCurrencyChange(self):
+        currency_btm = self.driver.find_element_by_css_selector(
+            "#form-currency > div > button > span"
+        )
+        currency_btm.click()
+        reg_btn = self.driver.find_element_by_css_selector(
+            "#top-links > ul > li.dropdown.open > ul > li:nth-child(1) > a")
+        reg_btn.click()
+        first_name_input = self.driver.find_element_by_css_selector("#input-firstname")
+        first_name_input.send_keys("lhalam")
+        email_input = self.driver.find_element_by_css_selector("#input-email")
+        email_input.send_keys("lhalam@l")
 
-        def tearDown(self):
-            time.sleep(4)
+        continue_btn = self.driver.find_element_by_css_selector("#content > form > div > div > input.btn.btn-primary")
+        continue_btn.click()
 
-    def test_search2(self):
-        element = self.driver.find_element_by_css_selector("#search > input")
-        element.send_keys("mac")
-        element.send_keys(Keys.ENTER)
-        self.assertIn("No results found.", self.driver.page_source)
+        last_name_error_lb = self.driver.find_element_by_css_selector("#account > div:nth-child(4) > div > div")
+        self.assertEqual(last_name_error_lb.text,
+        "Last Name must be between 1 and 32 characters!")
+        try:
 
-    def test_search21(self):
-        element = self.driver.find_element_by_css_selector("#search > input")
-        element.send_keys("mac")
-        element.send_keys(Keys.ENTER)
-
-        element2 = self.driver.find_element_by_xpath('//*[@id="content"]/div[2]/div[3]/div/div[2]/h4/a')
-
-        self.assertEqual("No results found.", element2.text)
-#        self.assertEqual(element2.value_of_css_property("color"), 'rgba(68, 68, 68, 1)')
+            first_name_error_lb = self.driver.find_element_by_css_selector("#account > div:nth-child(3) > div > div")
+        except:
+            first_name_error_lb = None
+        self.assertIsNone(first_name_error_lb)
