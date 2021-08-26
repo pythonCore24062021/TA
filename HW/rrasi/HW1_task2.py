@@ -9,8 +9,6 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-browser = webdriver.Chrome()
-browser.get("http://taqc-opencart.epizy.com/")
 
 class FirstSeleniumTest(unittest.TestCase):
     driver = None
@@ -33,9 +31,16 @@ class FirstSeleniumTest(unittest.TestCase):
         cls.driver.quit()
 
     def test_search1(self):
-        element = self.driver.find_element_by_css_selector("#search > input")
-        element.send_keys("mac")
-        element.send_keys(Keys.ENTER)
+        PHRASE = 'mac'
+        search_input = self.driver.find_element_by_css_selector("#search > input")
+        search_input.send_keys("mac")
+        search_input.send_keys(Keys.ENTER)
 #        element.btm.click()
-        self.assertNotIn("No results found.", self.driver.page_source)
+        time.sleep(3)
+
+# Verify that at least one search result contains the search phrase
+        xpath = f"//*[@id="search"]/input']//*[contains(text(), '{PHRASE}')]"
+        phrase_results = browser.find_elements_by_xpath(xpath)
+        assert len(phrase_results) > 0
+
 
