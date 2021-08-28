@@ -7,19 +7,17 @@ import time
 import unittest
 
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
 
-class FirstSeleniumTest(unittest.TestCase):
+class PythonOrgSearch(unittest.TestCase):
     driver = None
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
         self.driver.get("http://taqc-opencart.epizy.com/")
+        time.sleep(2)
 
     def tearDown(self):
         time.sleep(2)
-        # self.driver.quit()
 
     @classmethod
     def setUpClass(cls):
@@ -30,21 +28,16 @@ class FirstSeleniumTest(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_search1(self):
-        PHRASE = 'mac'
+    def test_first_reg_user(self):
         search_input = self.driver.find_element_by_css_selector("#search > input")
         search_input.send_keys("mac")
-        search_input.send_keys(Keys.ENTER)
-#        element.btm.click()
-#        time.sleep(3)
-        element2 = self.driver.find_element_by_xpath('//*[@id="content"]/div/section/form/ul/p')
+        search_btn = self.driver.find_element_by_css_selector("#search > span > button > i")
+        search_btn.click()
+        products = self.driver.find_elements_by_class_name("product-thumb")
 
-        self.assertEqual("No results found.", element2.text)
-        self.assertEqual(element2.value_of_css_property("color"), 'rgba(68, 68, 68, 1)')
-
-# Verify that at least one search result contains the search phrase
-#        xpath = f"//*[@id="search"]/input"]/input']//*[contains(text(), '{PHRASE}')]"
-#        phrase_results = self.find_elements_by_xpath(xpath)
-#        assert len(phrase_results) > 0
-
-
+        self.assertEqual(len(products), 4)
+        names = []
+        for product in products:
+            names.append(product.find_element_by_xpath('.//div[2]/div[1]/h4/a').text)
+        self.assertListEqual(names, ['iMac', 'MacBook', 'MacBook Air', 'MacBook Pro'])
+        self.assertListEqual(names, ['iMac', 'MacBook', 'MacBook Air', 'MacBook Pro'])
