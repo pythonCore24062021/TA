@@ -41,3 +41,19 @@ class PythonOrgSearch(unittest.TestCase):
             names.append(product.find_element_by_xpath('.//div[2]/div[1]/h4/a').text)
         self.assertListEqual(names, ['iMac', 'MacBook', 'MacBook Air', 'MacBook Pro'])
         self.assertListEqual(names, ['iMac', 'MacBook', 'MacBook Air', 'MacBook Pro'])
+
+
+#        my_account_btm = self.driver.find_element_by_css_selector(
+#            "#top-links > ul > li.dropdown > a > span.hidden-xs.hidden-sm.hidden-md"
+        )
+        my_acount_btm.click()
+        login_btn = self.driver.find_element_by_css_selector(
+            "#top-links > ul > li.dropdown.open > ul > li:nth-child(2) > a")
+        login_btn.click()
+        email_adress_input = self.driver.find_element_by_css_selector("#input-email")
+        email_adress_input.send_keys("rusichka85d@gmail.com")
+        password_input = self.driver.find_element_by_css_selector("#input-password")
+        password.send_keys("Rusichka85d")
+
+        login_btn = self.driver.find_element_by_css_selector("#content > div > div:nth-child(2) > div > form > input")
+        login_btn.click()

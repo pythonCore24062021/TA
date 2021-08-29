@@ -27,22 +27,28 @@ class PythonOrgSearch(unittest.TestCase):
         cls.driver.maximize_window()
 
 
-    def test_checkCurrencyChange(self):
-        All_currencies = ['$', '€', '£']
-        currency_btn = self.driver.find_element_by_css_selector("#form-currency")
+    def test_check_currency_is_eur(self):
+        currency_btn = self.driver.find_element_by_css_selector("#form-currency > div > button > span")
         currency_btn.click()
         eur_btn = self.driver.find_element_by_css_selector("#form-currency > div > ul > li:nth-child(1) > button")
         eur_btn.click()
-        products = self.driver.find_elements_by_class_name("product-thumb")
-        currencies = []
-        for product in products:
-            currencies.append(product.find_element_by_xpath('.//div/button/strong').text)
-        self.assertListEqual(currencies, ['€'])
-        currency_btn = self.driver.find_element_by_css_selector("#form-currency")
-        currency_btn.click()
-        usd_btn = self.driver.find_element_by_css_selector("#form-currency > div > ul > li:nth-child(3) > button")
-        usd_btn.click()
-        currency_btn = self.driver.find_element_by_css_selector("#form-currency")
-        currency_btn.click()
-        pound_btn = self.driver.find_element_by_css_selector("#form-currency > div > ul > li:nth-child(2) > button")
-        pound_btn.click()
+        check_currency_change = self.driver.find_element_by_css_selector("#cart-total")
+        self.assertEqual(check_currency_change.text, "0 item(s) - 0.00€")
+
+    def test_check_currency_is_dollar(self):
+        currency_dropdown = self.driver.find_element_by_css_selector("#form-currency > div > button")
+        currency_dropdown.click()
+        select_dollar = self.driver.find_element_by_css_selector("#form-currency > div > ul > li:nth-child(3) > button")
+        select_dollar.click()
+        check_currency_change = self.driver.find_element_by_css_selector("#cart-total")
+        self.assertEqual(check_currency_change.text, "0 item(s) - $0.00")
+
+    def test_check_currency_is_pound(self):
+        currency_dropdown = self.driver.find_element_by_css_selector("#form-currency > div > button")
+        currency_dropdown.click()
+        select_pound = self.driver.find_element_by_css_selector("#form-currency > div > ul > li:nth-child(2) > button")
+        select_pound.click()
+        check_currency_change = self.driver.find_element_by_css_selector("#cart-total")
+        self.assertEqual(check_currency_change.text, "0 item(s) - £0.00")
+
+
