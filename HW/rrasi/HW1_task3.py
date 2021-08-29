@@ -3,15 +3,42 @@
 
 #checkAddToCart method - to check the functionality of adding items 'Xiaomi Mi 8' and 'MacBook' to cart.
 
+import time
+import unittest
 
-def checkCurrencyChange(self):
-    currency_btm = self.driver.find_element_by_css_selector(
-        "#form-currency > div > button > span"
-    )
-    currency_btm.click()
-    eur_btn = self.driver.find_element_by_css_selector(
-        "#form-currency > div > ul > li:nth-child(1) > button")
-    eur_btn.click()
+from selenium import webdriver
 
-    search_input = self.driver.find_elements_by_xpath('.//div[2]/div[1]/div/div[2]/p[2]').text
-    search_input.send_keys("€")
+
+def temp():
+    tem = 1
+
+
+class PythonOrgSearch(unittest.TestCase):
+    driver = None
+
+    def setUp(self):
+        self.driver.get("http://taqc-opencart.epizy.com/")
+        temp()
+        temp()
+        time.sleep(2)
+
+    def tearDown(self):
+        time.sleep(2)
+
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome()
+        cls.driver.maximize_window()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.quit()
+
+    def test_checkAddToCart (self):
+        my_acount_btm = self.driver.find_element_by_css_selector("#top-links > ul > li.dropdown > a > span.hidden-xs.hidden-sm.hidden-md")
+        my_acount_btm.click()
+        reg_btn = self.driver.find_element_by_css_selector("#top-links > ul > li.dropdown.open > ul > li:nth-child(1) > a")
+        reg_btn.click()
+
+
+
