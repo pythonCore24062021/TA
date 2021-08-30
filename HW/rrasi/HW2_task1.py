@@ -1,7 +1,10 @@
+## HW03
 #Please, write integration tests by Selenium WebDriver to verify some features of Open Cart Application.
-#Please develop next methods in the FirstSeleniumTest class
+# Use only CSS selectors to search of all web elements on site.
+#Please develop next methods in the `SearchTest` class
 
-#checkAddToCart method - to check the functionality of adding items 'Xiaomi Mi 8' and 'MacBook' to cart.
+#- loginByCssSelector method - to check the functionality of login;
+
 import time
 import unittest
 
@@ -33,24 +36,23 @@ class PythonOrgSearch(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_checkAddToCart (self):
+    def test_loginByCssSelector (self):
 
-        search_input = self.driver.find_element_by_css_selector("#search > input")
-        search_input.send_keys("MacBook")
-        search_button = self.driver.find_element_by_css_selector('#search > span > button > i')
-        search_button.click()
-        add_second_item_button = self.driver.find_element_by_css_selector(' #content > div:nth-child(8) > div:nth-child(1) > div > div:nth-child(2) > div.button-group > button:nth-child(1)')
-        add_second_item_button.click()
-        open_cart = self.driver.find_element_by_css_selector('#top-links > ul > li:nth-child(4) > a > span')
-        open_cart.click()
-        check_add_to_cart = self.driver.find_elements_by_css_selector("#content > form > div > table > tbody > tr > td:nth-child(2) > a")  #td.text-left > a
-        check_cart_items = list()
-        for cart_item in check_add_to_cart:
-            check_cart_items.append(cart_item.text)
+        my_acount_btm = self.driver.find_element_by_css_selector(
+            "#top-links > ul > li.dropdown > a"
+        )
+        my_acount_btm.click()
+        login_btn = self.driver.find_element_by_css_selector(
+            "#top-links > ul > li.dropdown.open > ul > li:nth-child(2) > a")
+        login_btn.click()
+        email_input = self.driver.find_element_by_css_selector("#input-email")
+        email_input.send_keys("rusichka85d@gmail.com")
+        password_input = self.driver.find_element_by_css_selector("#input-password")
+        password_input.send_keys("Pankivskogo151")
 
-        expected_results = ["MacBook"]
+        login_btn = self.driver.find_element_by_css_selector("#content > div > div:nth-child(2) > div > form > input")
+        login_btn.click()
 
-        self.assertTrue(set(check_cart_items) & set(expected_results))
 
 
 
