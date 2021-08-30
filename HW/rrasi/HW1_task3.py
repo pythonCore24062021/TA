@@ -52,11 +52,13 @@ class PythonOrgSearch(unittest.TestCase):
         search_input.send_keys("MacBook")
         search_button = self.driver.find_element_by_css_selector('#search > span > button > i')
         search_button.click()
-        add_second_item_button = self.driver.find_element_by_css_selector(' # content > div:nth-child(8) > div:nth-child(1) > div > div:nth-child(2) > div.button-group > button:nth-child(1) > span')
+        add_second_item_button = self.driver.find_element_by_css_selector(
+            ' #content > div:nth-child(8) > div:nth-child(1) > div > div:nth-child(2) > div.button-group > button:nth-child(1)')
         add_second_item_button.click()
         open_cart = self.driver.find_element_by_css_selector('#top-links > ul > li:nth-child(4) > a > span')
         open_cart.click()
-        check_add_to_cart = self.driver.find_elements_by_css_selector("td.text-left > a")
+        check_add_to_cart = self.driver.find_elements_by_css_selector(
+            "#content > form > div > table > tbody > tr > td:nth-child(2) > a")  # td.text-left > a
         check_cart_items = list()
         for cart_item in check_add_to_cart:
             check_cart_items.append(cart_item.text)
