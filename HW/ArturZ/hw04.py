@@ -1,7 +1,6 @@
 from selenium.webdriver.support import expected_conditions as EC
 
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import unittest
 import time
@@ -46,6 +45,7 @@ class SearchXPathTest(unittest.TestCase):
         click_search.click()
 
         time.sleep(2)
+
         products_xpath = self.driver.find_elements_by_xpath('//div[@class="product-thumb"]')
 
         self.assertEqual(len(products_xpath), 4)
@@ -54,7 +54,6 @@ class SearchXPathTest(unittest.TestCase):
             names.append(product_xpath.find_element_by_xpath('.//div[2]/div[1]/h4/a').text)
 
         time.sleep(5)
-
 
         expected_results = ["iMac", "MacBook", "MacBook Air", "MacBook Pro"]
         self.assertEqual(names, expected_results)
@@ -86,7 +85,6 @@ class SearchXPathTest(unittest.TestCase):
         add_second_item.click()
 
         time.sleep(1)
-        # Was added due bad internet connection.
 
         open_cart = WebDriverWait(self.driver, 5).until(
             EC.element_to_be_clickable((By.XPATH, '//div[@id="cart"]'))
@@ -104,3 +102,4 @@ class SearchXPathTest(unittest.TestCase):
         expected_results = ["Xiaomi Mi 8", "MacBook"]
 
         self.assertListEqual(names, expected_results)
+
