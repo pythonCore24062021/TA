@@ -31,9 +31,9 @@ class PythonOrgSearch(unittest.TestCase):
 #      //button[@type="button" and @class="btn btn-default btn-lg"]
 #
         search_btn.click()
-        products = self.driver.find_elements_by_xpath('//[@class="product-thumb"]')
+        products = self.driver.find_elements_by_xpath('//div[@class="product-thumb"]')
 
-        self.assertEqual(len(products), 3)
+        self.assertEqual(len(products), 4)
         names = []
         for product in products:
             names.append(product.find_element_by_xpath('.//div[2]/div[1]/h4/a').text)
