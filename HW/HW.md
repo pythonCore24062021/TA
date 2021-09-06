@@ -23,4 +23,24 @@ Please, write integration tests by Selenium WebDriver to verify some features of
 - addQuantityInCartByXPath - to check the functionality of adding items to cart.
 
 
+# HW05
+Please, write integration tests by Selenium WebDriver to verify some features of Open Cart Application. Use Explicit waits to search web elements.
+Please develop next methods in the SearchExplicitTest classs
 
+- update checkAddToCart method - remove presentationSleep(2); and write explicit wait code  to expect breadcrumb element or url updated;
+- checkAddAppleCinema30ToCart method - to check the functionality of a add Apple Cinema 30" item to cart;
+- checkAddToWishList method - to check the functionality of adding items to wish list;
+
+in the SearchExplicitTest class
+- closePopup method - to check and close the pop-up web element, if it is exist on page;
+- checkAjaxIframePage method - to check the functionality to search "Order Date" of selected "Store State" in the table.
+
+
+# HW06
+Please, write integration tests by Selenium WebDriver to verify some features of Open Cart Application. Use page-object approach to development of test framework.
+Please develop next methods and classes
+
+- RegisterPage class - to representation sign up page;
+- RegisterTest class - to check the functionality of sign up;
+- User class - to send parameters of checkRegister method of RegisterTest class;
+- checkUnsuccessful method of LoginTest class - to check the functionality of unsuccessfuly login.
