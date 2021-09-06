@@ -48,16 +48,21 @@ class PythonOrgSearch(unittest.TestCase):
         select_size = self.driver.find_element_by_xpath('.//*[@id="input-option224"]/option[2]')
         select_size.click()
         time.sleep(3)
+        add_quantity = self.driver.find_element_by_xpath('.//*[@id="input-quantity"]')
+        add_quantity.clear()
+        add_quantity.send_keys("2")
+        time.sleep(2)
         add_product_btn = self.driver.find_element_by_xpath('//*[@id="button-cart"]')
         add_product_btn.click()
+        time.sleep(2)
 
 
         open_cart = self.driver.find_element_by_xpath('//span[contains (text(), "Shopping Cart")]')
 #
         open_cart.click()
         time.sleep(3)
-        check_add_to_cart = self.driver.find_element_by_xpath('//*[@id="content"]/form/div/table/tbody/tr/td[2]/a')
+        check_add_to_cart = self.driver.find_element_by_xpath('//*[@name="quantity[5017]" and @value="2"]')
 #        ('//*[@id="content"]/form/div/table/tbody/tr/td[2]/a')
-        expected_results = ["Xiaomi Mi 8"]
+        expected_results = ["2"]
 
-        self.assertEqual(check_add_to_cart.text, 'Xiaomi Mi 8')
+        self.assertEqual(check_add_to_cart.text, '2')
