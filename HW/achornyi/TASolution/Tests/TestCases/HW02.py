@@ -1,13 +1,11 @@
-# from HW.achornyi.TASolution.Framework.Web import drivers
-import json
-
 from HW.achornyi.TASolution.Framework.Web import drivers
+from HW.achornyi.TASolution.Tests.Repositories import HW02Repository
 from HW.achornyi.TASolution.Tests.TestCases.BaseTestCase import BaseTestCase
 
 
 class HW02Tests(BaseTestCase):
     def setUp(self):
-        drivers.current.get("http://taqc-opencart.epizy.com/")
+        drivers.current.get(HW02Repository.base_url)
 
     def tearDown(self):
         pass
