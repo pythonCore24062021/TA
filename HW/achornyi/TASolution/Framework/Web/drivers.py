@@ -1,8 +1,11 @@
 import threading
 
+import chromedriver_autoinstaller
+
 
 def __init__(self):
     _drivers = {}
+    update_and_configure_drivers()
 
 
 @property
@@ -18,3 +21,7 @@ def current(self):
 @current.setter
 def current(self, value):
     self._drivers[_current_driver_key] = value
+
+
+def update_and_configure_drivers():
+    chromedriver_autoinstaller.install()
