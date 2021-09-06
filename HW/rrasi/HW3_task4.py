@@ -31,7 +31,7 @@ class PythonOrgSearch(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_checkAddToCart (self):
+    def test_checkAddToCart(self):
         search_input = self.driver.find_element_by_xpath(".//input[@name='search']")
         search_input.send_keys("Xiaomi Mi 8")
         search_button = self.driver.find_element_by_xpath('//span[@class="input-group-btn"]')
@@ -61,7 +61,7 @@ class PythonOrgSearch(unittest.TestCase):
 #
         open_cart.click()
         time.sleep(3)
-        check_add_to_cart = self.driver.find_element_by_xpath('//*[@name="quantity[5017]" and @value="2"]')
+        check_add_to_cart = self.driver.find_element_by_xpath('.//div[@class="input-group btn-block"]')
 #        ('//*[@id="content"]/form/div/table/tbody/tr/td[2]/a')
         expected_results = ["2"]
 
