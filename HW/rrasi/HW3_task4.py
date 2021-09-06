@@ -61,8 +61,8 @@ class PythonOrgSearch(unittest.TestCase):
 #
         open_cart.click()
         time.sleep(3)
-        check_add_to_cart = self.driver.find_element_by_xpath('.//div[@class="input-group btn-block"]')
-#        ('//*[@id="content"]/form/div/table/tbody/tr/td[2]/a')
-        expected_results = ["2"]
+        check_quantity = self.driver.find_element_by_xpath('.//div[@class="input-group btn-block"]/input')
+        qty = check_quantity.get_attribute("value")
+#
 
-        self.assertEqual(check_add_to_cart.text, '2')
+        self.assertEqual(qty, '2')
