@@ -1,5 +1,5 @@
 import unittest
-from HW.achornyi.TASolution.Framework.Web import drivers
+from HW.achornyi.ta_solution.framework.web import drivers
 
 from selenium import webdriver
 
