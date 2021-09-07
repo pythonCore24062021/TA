@@ -1,7 +1,8 @@
-class BasePage:
-    def __init__(self, base_url: str):
-        self.relative_path = None
-        self.base_url = base_url
+from ui.components.base_page.header import Header
 
-    def get_url(self):
-        return self.base_url + self.relative_path
+
+class BasePage:
+    def __init__(self, relative_path: str):
+        self.relative_path = relative_path
+        self.header = Header()
+
