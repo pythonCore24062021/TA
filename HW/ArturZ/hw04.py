@@ -99,6 +99,7 @@ class SearchXPathTest(unittest.TestCase):
         for cart_item in check_add_to_cart:
             names.append(cart_item.find_element_by_xpath('./a').text)
 
+
         expected_results = ["Xiaomi Mi 8", "MacBook"]
 
         self.assertListEqual(names, expected_results)
