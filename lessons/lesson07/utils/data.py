@@ -6,13 +6,11 @@ from urllib.parse import urlparse
 import apiclient.discovery  # pylint: disable=import-error
 import googleapiclient
 import httplib2
-import singleton as singleton
-
 from oauth2client.service_account import ServiceAccountCredentials
+
 
 # from app import SHEET_LOGGER
 # https://docs.google.com/spreadsheets/d/1vAIhK-8oD2YZEoZ4FoQdD8Qtl58kTiCiwzhocWlqRNM/edit?usp=sharing
-
 
 
 class _SheetManager():
@@ -191,7 +189,7 @@ class _SheetManager():
             ).execute()
 
             data = values.get('values')
-            result ={}
+            result = {}
             if data is not None:
                 for row in data:
                     result.setdefault(row[0], row[1])
@@ -219,6 +217,7 @@ class Credentials(metaclass=Singleton):
 
     def get_admin_email(self):
         return self.data.get("admin_email")
+
     def get_admin_password(self):
         return self.data.get("admin_pass")
 
@@ -227,9 +226,9 @@ if __name__ == "__main__":
     # print(SheetManager.get_all_data("1vAIhK-8oD2YZEoZ4FoQdD8Qtl58kTiCiwzhocWlqRNM"))
     credentials = Credentials("1vAIhK-8oD2YZEoZ4FoQdD8Qtl58kTiCiwzhocWlqRNM")
 
+    credentials1 = Credentials("1vAIhK-8oD2YZEoZ4FoQdD8Qtl58kTiCiwzhocWlqRNM")
     credentials2 = Credentials("1vAIhK-8oD2YZEoZ4FoQdD8Qtl58kTiCiwzhocWlqRNM")
     credentials3 = Credentials("1vAIhK-8oD2YZEoZ4FoQdD8Qtl58kTiCiwzhocWlqRNM")
-
 
     print(credentials)
     print(credentials1)
@@ -237,3 +236,7 @@ if __name__ == "__main__":
     print(credentials3)
     print(credentials.get_admin_email())
     print(credentials.get_admin_password())
+
+    import os
+    print(os.environ['ComSpec'])
+    # print(os.environ['chrome_driver'])
