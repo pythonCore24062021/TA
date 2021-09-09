@@ -1,22 +1,20 @@
 import unittest
-from HW.achornyi.ta_solution.framework.web import drivers
-
-from selenium import webdriver
-
+import framework.web.drivers as drivers
 from HW.achornyi.ta_solution.tests.repositories import base_repository
-from ui.pages.home_page import HomePage
+from framework.web.driver import Driver
+from ui.pages.home_page.home_page import HomePage
 
 
 class BaseTestCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        drivers.current = webdriver.Chrome()
-        drivers.current.maximize_window()
+        drivers.set_current(Driver(base_repository.BROWSER_TYPE))
+        drivers.get_current().maximize_window()
 
     @classmethod
     def tearDownClass(cls):
-        drivers.current.quit()
+        drivers.get_current().quit()
 
     def setUp(self):
-        drivers.current.get(base_repository.BASE_URL)
-        home_page = HomePage()
+        drivers.get_current().get(base_repository.BASE_URL)
+        self.home_page = HomePage()

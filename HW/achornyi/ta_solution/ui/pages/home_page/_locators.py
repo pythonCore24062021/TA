@@ -1,0 +1,2 @@
+RELATIVE_PATH = ""
+PAGE_TITLE = "Your Store"

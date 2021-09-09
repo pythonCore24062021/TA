@@ -1,5 +1,5 @@
-from ui.components.base_component import BaseComponent
-import ui.locators.base_page.header as locators
+from ui.pages.base_component import BaseComponent
+import ui.pages.base_pages.header_component._locators as locators
 
 
 class Header(BaseComponent):
