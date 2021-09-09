@@ -9,7 +9,7 @@ class Driver:
         self._driver = browsers[bt]
 
     def find_element(self, element) -> Element:
-        return Element(self._driver.find_element(element.wrapper()))
+        return Element(self._driver.find_element(*element.wrapper()))
 
     def maximize_window(self):
         self._driver.maximize_window()

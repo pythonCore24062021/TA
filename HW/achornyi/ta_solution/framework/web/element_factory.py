@@ -1,7 +1,6 @@
-import framework.web.drivers as drivers
-from framework.web.driver import Driver
+from framework.web.drivers import Drivers
 
 
 def create_element(search):
-    driver: Driver = drivers.get_current()
+    driver = Drivers().get_current()
     return driver.find_element(search)
