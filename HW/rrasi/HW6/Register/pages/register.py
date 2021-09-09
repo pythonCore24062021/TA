@@ -18,8 +18,13 @@ class Register(BasePage):
         self.address_input = Input(driver, RegisterPageLocators.ADDRESS1)
         self.city_input = Input(driver, RegisterPageLocators.CITY)
         self.country_input = Input(driver, RegisterPageLocators.COUNTRY)
+        self.region_input = Input(driver, RegisterPageLocators.REGION)
+        self.password_input = Input(driver, RegisterPageLocators.PASSWORD)
+        self.passwordconfirm_input = Input(driver, RegisterPageLocators.PASSWORDCONFIRM)
+        self.privacycheckmark_input = Input(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK)
 
-        self.login_btn = Button(driver, LoginPageLocators.LOGIN_BTN)
+
+        self.continue_btn = Button(driver, RegisterPageLocators.CONTINUEBTN)
 
     def get_warning(self):
         self.warning = AlertDiv(self.driver, LoginPageLocators.ALERT_DIV)
