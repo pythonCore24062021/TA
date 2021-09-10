@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class Currencies(Enum):
-    usd = "$ US Dollar"
-    pound = "£ Pound Sterling"
-    euro = "€ Euro"
+    USD = "$ US Dollar"
+    GBP = "£ Pound Sterling"
+    EUR = "€ Euro"
 
