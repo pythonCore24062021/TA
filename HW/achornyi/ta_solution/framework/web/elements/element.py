@@ -10,8 +10,11 @@ class Element:
         self._wrapper = wrapper
 
     def find_child_element(self, search: Search) -> WebElement:
-        return self._wrapper.find_element(search.wrapper())
+        return self._wrapper.find_element(*search.wrapper())
 
     def find_child_elements(self, search) -> list[WebElement]:
-        return self._wrapper.find_elements(search.wrapper())
+        return self._wrapper.find_elements(*search.wrapper())
+
+    def click(self):
+        self._wrapper.click()
 
