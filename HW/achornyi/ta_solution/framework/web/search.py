@@ -10,12 +10,12 @@ class Search:
 
 
 def xpath(selector: str):
-    search = By.XPATH(selector)
+    search = (By.XPATH, selector)
     return Search(search)
 
 
 def css_selector(selector: str):
-    search = By.CSS_SELECTOR(selector)
+    search = (By.CSS_SELECTOR, selector)
     return Search(search)
 
 
