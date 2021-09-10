@@ -1,3 +1,2 @@
 #  header locators
-
-WRAPPER = ""  # TODO - provide locator
+CURRENCY_BTN_XPATH = ".//form[@id = 'form-currency']//button[contains(@class, 'dropdown-toggle')]"
