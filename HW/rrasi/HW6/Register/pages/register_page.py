@@ -4,9 +4,11 @@ import time
 from HW.rrasi.HW6.Register.elements.button import Button
 from HW.rrasi.HW6.Register.elements.input import Input
 from HW.rrasi.HW6.Register.pages.base_page import BasePage
-from HW.rrasi.HW6.Register.locators.login_page_locators import LoginPageLocators
+#from HW.rrasi.HW6.Register.locators.login_page_locators import LoginPageLocators
 from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
 from HW.rrasi.HW6.Register.elements.successmessage import Message
+#from HW.rrasi.HW6.Register.elements.checkmark import PrivacyCheckmark
+#import HW.rrasi.HW6.Register.elements.dropdown
 
 
 class RegisterUser(BasePage):
@@ -33,8 +35,8 @@ class RegisterUser(BasePage):
         self.successmessage = Message(self.driver, RegisterPageLocators.SUCCESSMESSAGE)
         return self.message
 
-    def set_firstname(self, firstname):
-        self.firstname_input.set_value(firstname)
+    def set_firstname(self, value):
+        self.firstname_input.set_value(value)
         return self
 
     def set_lastname(self, lastname):

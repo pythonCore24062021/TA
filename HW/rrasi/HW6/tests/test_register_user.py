@@ -5,8 +5,8 @@ from selenium import webdriver
 
 
 from HW.rrasi.HW6.Register.pages.home import Home
-from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
-from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
+#from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
+#from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
 
 
 
