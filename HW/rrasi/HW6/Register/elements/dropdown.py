@@ -1,6 +1,7 @@
-from elements.base import BaseElement
-from locators.home_page_locators import HomePageLocators
-from pages.login import Login
+
+from HW.rrasi.HW6.Register.elements.base import BaseElement
+from HW.rrasi.HW6.Register.pages.login import Login
+from HW.rrasi.HW6.Register.locators.home_page_locators import HomePageLocators
 
 
 class Dropdown(BaseElement):

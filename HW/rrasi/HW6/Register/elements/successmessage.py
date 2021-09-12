@@ -1,10 +1,8 @@
-from elements.base import BaseElement
-from locators.home_page_locators import HomePageLocators
-from pages.register import Register
-from locators.register_page_locators import RegisterPageLocators
+
+from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
 
 
 
-class Message(Register):
+class Message(RegisterUser):
     def get_message(self):
         return self.element.text

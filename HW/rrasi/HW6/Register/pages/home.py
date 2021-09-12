@@ -1,6 +1,7 @@
-from elements.dropdown import Dropdown, DropdownMyAccount
-from locators.home_page_locators import HomePageLocators
-from pages.base_page import BasePage
+
+from HW.rrasi.HW6.Register.elements.dropdown import Dropdown, DropdownMyAccount
+from HW.rrasi.HW6.Register.pages.base_page import BasePage
+from HW.rrasi.HW6.Register.locators.home_page_locators import HomePageLocators
 
 
 class Home(BasePage):

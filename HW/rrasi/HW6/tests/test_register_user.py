@@ -3,8 +3,11 @@ import unittest
 
 from selenium import webdriver
 
-from pages.home import Home
-from pages.register import Register
+
+from HW.rrasi.HW6.Register.pages.home import Home
+from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
+from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
+
 
 
 class RegisterPage(unittest.TestCase):

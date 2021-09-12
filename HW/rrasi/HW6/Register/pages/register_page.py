@@ -1,14 +1,15 @@
 import time
 
-from elements.button import Button
-from elements.input import Input
-from locators.login_page_locators import LoginPageLocators
-from pages.base_page import BasePage
-from locators.register_page_locators import RegisterPageLocators
-from elements.successmessage import Message
+
+from HW.rrasi.HW6.Register.elements.button import Button
+from HW.rrasi.HW6.Register.elements.input import Input
+from HW.rrasi.HW6.Register.pages.base_page import BasePage
+from HW.rrasi.HW6.Register.locators.login_page_locators import LoginPageLocators
+from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
+from HW.rrasi.HW6.Register.elements.successmessage import Message
 
 
-class Register(BasePage):
+class RegisterUser(BasePage):
 
     def __init__(self, driver):
         super().__init__(driver)
