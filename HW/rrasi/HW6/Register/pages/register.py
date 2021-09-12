@@ -5,6 +5,7 @@ from elements.input import Input
 from locators.login_page_locators import LoginPageLocators
 from pages.base_page import BasePage
 from locators.register_page_locators import RegisterPageLocators
+from elements.successmessage import Message
 
 
 class Register(BasePage):
@@ -26,22 +27,59 @@ class Register(BasePage):
 
         self.continue_btn = Button(driver, RegisterPageLocators.CONTINUEBTN)
 
-    def get_warning(self):
-        self.warning = Message(self.driver, RegisterPageLocators.SUCCESSMESSAGE)
-        return self.warning
+    def get_message(self):
+        self.message = Message(self.driver, RegisterPageLocators.SUCCESSMESSAGE)
+        return self.message
+
+    def set_firstname(self, firstname):
+        self.firstname_input.set_value(firstname)
+        return self
+
+    def set_lastname(self, lastname):
+        self.lastname_input.set_value(lastname)
+        return self
 
     def set_email(self, email):
         self.email_input.set_value(email)
         return self
 
+    def set_telephone(self, telephone):
+        self.telephone_input.set_value(telephone)
+        return self
+
+    def set_address(self, address):
+        self.address_input.set_value(address)
+        return self
+
+    def set_city(self, city):
+        self.city_input.set_value(city)
+        return self
+
+    def set_country(self, country):
+        self.country_input.set_value(country)
+        return self
+
+    def set_region(self, region):
+        self.region_input.set_value(region)
+        return self
+
     def set_password(self, email):
         self.password_input.set_value(email)
         return self
-    def click_login(self):
-        self.login_btn.click()
+
+    def set_passwordconfirm(self, passwordconfirm):
+        self.passwordconfirm_input.set_value(passwordconfirm)
+        return self
+
+    def set_privacycheckmark(self, privacycheckmark):
+        self.privacycheckmark_input.set_value(privacycheckmark)
+        return self
+
+    def click_continue(self):
+        self.continue_btn.click()
         time.sleep(2)
         try:
-            self.get_warning()
+            self.get_message()
             return self
         except:
             pass
