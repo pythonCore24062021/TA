@@ -6,7 +6,7 @@ from selenium import webdriver
 from pages.home import Home
 
 
-class TestLoginPage(unittest.TestCase):
+class RegisterPage(unittest.TestCase):
     driver = None
 
     def setUp(self):
@@ -27,12 +27,25 @@ class TestLoginPage(unittest.TestCase):
         cls.driver.quit()
 
     def test_first_reg_user(self):
-        login_page = self.home \
+        register_page = self.home \
             .get_my_account() \
             .click() \
-            .clickLogin() \
-            .set_email("testEmail") \
-            .set_password("testPasword") \
-            .click_login()
+            .clickRegister() \
+            .set_firstname("Popandopalo") \
+            .set_lastname("Test") \
+            .set_email("testEmail@gmail.com") \
+            .set_telephone("5555") \
+            .set_address("street") \
+            .set_city("Lviv") \
+            .set_postcode("79000") \
+            .set_country("testEmail") \
+            .click() \
+            .set_region("testPasword") \
+            .click() \
+            .set_password("789456") \
+            .set_passwordconfirm("789456") \
+            .set_privacycheckmark() \
+ \
+            .click_continue()
 
-        self.assertEqual(login_page.get_warning().get_message(), 'Warning: No match for E-Mail Address and/or Password.')
+        self.assertEqual(register_page.get_successmessage().get_message(), 'Your Account Has Been Created!')

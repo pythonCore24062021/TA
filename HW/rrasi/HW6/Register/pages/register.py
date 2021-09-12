@@ -18,6 +18,7 @@ class Register(BasePage):
         self.telephone_input = Input(driver, RegisterPageLocators.TELEPHONE)
         self.address_input = Input(driver, RegisterPageLocators.ADDRESS1)
         self.city_input = Input(driver, RegisterPageLocators.CITY)
+        self.postcode_input = Input(driver, RegisterPageLocators.POSTCODE)
         self.country_input = Input(driver, RegisterPageLocators.COUNTRY)
         self.region_input = Input(driver, RegisterPageLocators.REGION)
         self.password_input = Input(driver, RegisterPageLocators.PASSWORD)
@@ -27,8 +28,8 @@ class Register(BasePage):
 
         self.continue_btn = Button(driver, RegisterPageLocators.CONTINUEBTN)
 
-    def get_message(self):
-        self.message = Message(self.driver, RegisterPageLocators.SUCCESSMESSAGE)
+    def get_successmessage(self):
+        self.successmessage = Message(self.driver, RegisterPageLocators.SUCCESSMESSAGE)
         return self.message
 
     def set_firstname(self, firstname):
@@ -53,6 +54,10 @@ class Register(BasePage):
 
     def set_city(self, city):
         self.city_input.set_value(city)
+        return self
+
+    def set_postcode(self, postcode):
+        self.postcode_input.set_value(postcode)
         return self
 
     def set_country(self, country):

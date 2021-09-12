@@ -16,4 +16,4 @@ class Home(BasePage):
         return self.account_dropdown
 
     def click_register(self):
-        self.
+        self
