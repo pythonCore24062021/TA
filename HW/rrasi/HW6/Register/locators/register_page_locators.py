@@ -17,4 +17,5 @@ class RegisterPageLocators:
     PASSWORDCONFIRM = (By.XPATH, '//*[@id="input-confirm"]')
     PRIVACYPOLICYCHECKMARK = (By.XPATH, '//*[@id="content"]/form/div/div/input[1]')
     CONTINUEBTN = (By.XPATH, './/input[@class="btn btn-primary"]')
+    SUCCESSMESSAGE = (By.XPATH, '//*[@id="content"]/h1')
 

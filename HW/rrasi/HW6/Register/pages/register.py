@@ -27,7 +27,7 @@ class Register(BasePage):
         self.continue_btn = Button(driver, RegisterPageLocators.CONTINUEBTN)
 
     def get_warning(self):
-        self.warning = AlertDiv(self.driver, LoginPageLocators.ALERT_DIV)
+        self.warning = Message(self.driver, RegisterPageLocators.SUCCESSMESSAGE)
         return self.warning
 
     def set_email(self, email):
