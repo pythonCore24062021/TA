@@ -4,6 +4,7 @@ import unittest
 from selenium import webdriver
 
 from pages.home import Home
+from pages.register import Register
 
 
 class RegisterPage(unittest.TestCase):
