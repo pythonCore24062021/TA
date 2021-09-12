@@ -5,7 +5,7 @@ from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
 
 
 
-class PrivacyCheckmark(Register):
+class PrivacyCheckmark(RegisterUser):
 
     def __init__(self, driver, locators):
         super().__init__(driver, locators)
