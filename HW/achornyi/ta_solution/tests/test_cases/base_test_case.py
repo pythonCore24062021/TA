@@ -16,6 +16,7 @@ class BaseTestCase(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         Drivers().get_current().quit()
+        Drivers().delete_current()
 
     def setUp(self):
         Drivers().get_current().get(base_repository.BASE_URL + _locators.RELATIVE_PATH)

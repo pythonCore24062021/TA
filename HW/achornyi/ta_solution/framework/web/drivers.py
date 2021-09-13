@@ -27,6 +27,9 @@ class Drivers(metaclass=Singleton):
     def set_current(self, value: Driver):
         self._drivers[self._current_driver_key] = value
 
+    def delete_current(self):
+        del self._drivers[self._current_driver_key]
+
     @staticmethod
     def update_and_configure_drivers():
         chromedriver_autoinstaller.install()
