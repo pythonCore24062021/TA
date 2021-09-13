@@ -1,4 +1,4 @@
-from HW.rrasi.HW6.Register.elements.base import BaseElement
+from Register.elements.base import BaseElement
 
 
 class Button(BaseElement):

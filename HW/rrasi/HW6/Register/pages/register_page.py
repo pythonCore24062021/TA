@@ -1,14 +1,16 @@
 import time
 
 
-from HW.rrasi.HW6.Register.elements.button import Button
-from HW.rrasi.HW6.Register.elements.input import Input
-from HW.rrasi.HW6.Register.pages.base_page import BasePage
+from Register.elements.button import Button
+from Register.elements.checkmark import PrivacyCheckmark
+from Register.elements.input import Input
+from Register.pages.base_page import BasePage
 #from HW.rrasi.HW6.Register.locators.login_page_locators import LoginPageLocators
-from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
-from HW.rrasi.HW6.Register.elements.successmessage import Message
+from Register.locators.register_page_locators import RegisterPageLocators
+from Register.elements.successmessage import Message
 #from HW.rrasi.HW6.Register.elements.checkmark import PrivacyCheckmark
 #import HW.rrasi.HW6.Register.elements.dropdown
+from Register.elements.dropdown import Dropdown
 
 
 class RegisterUser(BasePage):
@@ -23,17 +25,21 @@ class RegisterUser(BasePage):
         self.city_input = Input(driver, RegisterPageLocators.CITY)
         self.postcode_input = Input(driver, RegisterPageLocators.POSTCODE)
         self.country_input = Input(driver, RegisterPageLocators.COUNTRY)
-        self.region_input = Input(driver, RegisterPageLocators.REGION)
+        self.region_input = Dropdown(driver, RegisterPageLocators.REGION)
         self.password_input = Input(driver, RegisterPageLocators.PASSWORD)
         self.passwordconfirm_input = Input(driver, RegisterPageLocators.PASSWORDCONFIRM)
-        self.privacycheckmark_input = Input(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK)
+        self.privacycheckmark_input = PrivacyCheckmark(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK)
+        self.country_dropdown = Dropdown(driver, RegisterPageLocators.COUNTRY)
 
 
         self.continue_btn = Button(driver, RegisterPageLocators.CONTINUEBTN)
-
+    def get_region_dropdown(self):
+        self.region_input = Dropdown(self.driver, RegisterPageLocators.REGION)
+        return self.region_input
     def get_successmessage(self):
+        # time.sleep(2)
         self.successmessage = Message(self.driver, RegisterPageLocators.SUCCESSMESSAGE)
-        return self.message
+        return self.successmessage
 
     def set_firstname(self, value):
         self.firstname_input.set_value(value)
@@ -64,11 +70,15 @@ class RegisterUser(BasePage):
         return self
 
     def set_country(self, country):
-        self.country_input.set_value(country)
+
+        self.country_dropdown.select_by_value(country)
+        time.sleep(1)
         return self
+        # self.country_input.set_value(country)
+        # return self
 
     def set_region(self, region):
-        self.region_input.set_value(region)
+        self.get_region_dropdown().select_by_value(region)
         return self
 
     def set_password(self, email):
@@ -79,15 +89,16 @@ class RegisterUser(BasePage):
         self.passwordconfirm_input.set_value(passwordconfirm)
         return self
 
-    def set_privacycheckmark(self, privacycheckmark):
-        self.privacycheckmark_input.set_value(privacycheckmark)
+    def set_privacycheckmark(self):
+        self.privacycheckmark_input.click()
         return self
 
     def click_continue(self):
         self.continue_btn.click()
         time.sleep(2)
-        try:
-            self.get_message()
-            return self
-        except:
-            pass
+        return self
+        # try:
+        #     self.get_message()
+        #     return self
+        # except:
+        #     pass

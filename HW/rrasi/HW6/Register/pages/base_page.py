@@ -1,5 +1,7 @@
 from selenium import webdriver
 
+from Register.pages.header_component import HeaderComponent
+
 
 class BasePage:
 
@@ -11,3 +13,6 @@ class BasePage:
 
     def get_current_path(self):
         return self.driver.current_url
+
+    def get_header(self):
+        return HeaderComponent(self.driver)

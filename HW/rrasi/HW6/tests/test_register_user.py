@@ -1,12 +1,11 @@
+
 import time
 import unittest
 
 from selenium import webdriver
 
 
-from HW.rrasi.HW6.Register.pages.home import Home
-#from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
-#from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
+from Register.pages.home import Home
 
 
 
@@ -31,21 +30,19 @@ class RegisterPage(unittest.TestCase):
         cls.driver.quit()
 
     def test_first_reg_user(self):
-        register_page = self.home \
-            .get_my_account() \
-            .click() \
+        register_page = self.home.get_header()\
+            .account_dropdown\
+            .click()\
             .clickRegister() \
             .set_firstname("Popandopalo2") \
             .set_lastname("Test2") \
-            .set_email("rul@gmail.com") \
+            .set_email(f"rul+{int(time.time())}@gmail.com") \
             .set_telephone("55555") \
             .set_address("street") \
             .set_city("Lviv") \
             .set_postcode("79000") \
-            .set_country() \
-            .click() \
-            .set_region() \
-            .click() \
+            .set_country("Ukraine") \
+            .set_region("Kyiv") \
             .set_password("789456") \
             .set_passwordconfirm("789456") \
             .set_privacycheckmark() \

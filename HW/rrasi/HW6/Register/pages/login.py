@@ -1,10 +1,10 @@
 import time
 
 
-from HW.rrasi.HW6.Register.elements.button import Button
-from HW.rrasi.HW6.Register.elements.input import Input
-from HW.rrasi.HW6.Register.pages.base_page import BasePage
-from HW.rrasi.HW6.Register.locators.login_page_locators import LoginPageLocators
+from Register.elements.button import Button
+from Register.elements.input import Input
+from Register.pages.base_page import BasePage
+from Register.locators.login_page_locators import LoginPageLocators
 
 class Login(BasePage):
 
