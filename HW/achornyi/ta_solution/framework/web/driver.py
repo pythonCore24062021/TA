@@ -3,13 +3,17 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 import selenium.webdriver.support.expected_conditions as conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from framework.system import system_logger
 from framework.web._driver_settings import DEFAULT_DELAY
 from framework.web.elements.element import Element
+
+logger = system_logger.get_logger(__name__)
 
 
 class Driver:
     def __init__(self, bt: str = "Chrome"):
         browsers = {"Chrome": webdriver.Chrome()}
+        logger.debug(f"Setting {browsers[bt]} web driver...")
         self._driver = browsers[bt]
         self._wait = WebDriverWait(self._driver, DEFAULT_DELAY)
 
