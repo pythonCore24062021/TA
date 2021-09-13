@@ -3,7 +3,7 @@ from HW.rrasi.HW6.Register.elements.base import BaseElement
 from HW.rrasi.HW6.Register.pages.login import Login
 from HW.rrasi.HW6.Register.locators.home_page_locators import HomePageLocators
 from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
-#from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
+from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
 from selenium.webdriver.common.keys import Keys
 
 
@@ -27,8 +27,10 @@ class DropdownMyAccount(Dropdown):
         self.login.click()
         return Login(self.driver)
 
+
     def clickRegister(self):
         self.register.click()
+        return RegisterUser(self.driver)
 
 
 class DropdownRegionState(Dropdown):

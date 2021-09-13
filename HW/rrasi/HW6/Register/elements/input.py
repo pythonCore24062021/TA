@@ -11,9 +11,6 @@ class Input(BaseElement):
         self.element.clear()
         self.element.send_keys(text)
 
-    def set_value(self, value):
-        self.element.send_keys(value)
-
     def get_value(self):
         return self.element.text()
 

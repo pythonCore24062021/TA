@@ -1,8 +1,7 @@
-
-from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
-
+from HW.rrasi.HW6.Register.elements.base import BaseElement
 
 
-class Message(RegisterUser):
+
+class Message(BaseElement):
     def get_message(self):
         return self.element.text

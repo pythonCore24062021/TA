@@ -35,16 +35,16 @@ class RegisterPage(unittest.TestCase):
             .get_my_account() \
             .click() \
             .clickRegister() \
-            .set_firstname("Popandopalo") \
-            .set_lastname("Test") \
-            .set_email("testEmail@gmail.com") \
-            .set_telephone("5555") \
+            .set_firstname("Popandopalo2") \
+            .set_lastname("Test2") \
+            .set_email("rul@gmail.com") \
+            .set_telephone("55555") \
             .set_address("street") \
             .set_city("Lviv") \
             .set_postcode("79000") \
-            .set_country("testEmail") \
+            .set_country() \
             .click() \
-            .set_region("testPasword") \
+            .set_region() \
             .click() \
             .set_password("789456") \
             .set_passwordconfirm("789456") \

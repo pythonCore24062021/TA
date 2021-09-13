@@ -1,11 +1,10 @@
-
+from HW.rrasi.HW6.Register.elements.base import BaseElement
 from HW.rrasi.HW6.Register.locators.register_page_locators import RegisterPageLocators
 
-from HW.rrasi.HW6.Register.pages.register_page import RegisterUser
 
 
 
-class PrivacyCheckmark(RegisterUser):
+class PrivacyCheckmark(BaseElement):
 
     def __init__(self, driver, locators):
         super().__init__(driver, locators)
