@@ -1,9 +1,8 @@
 import time
 from unittest import TestCase
 
-from selenium.webdriver.chrome import webdriver
-from locators.home_page_locators import HOME_URL
-from pages.login_page import login_page
+from selenium import webdriver
+from locators.home_page_locators import HomePageLocators
 from pages.home_page import HomePage
 
 
@@ -11,7 +10,7 @@ class TestLoginPage(TestCase):
     driver = None
 
     def setUp(self):
-        self.driver.get(HOME_URL)
+        self.driver.get(HomePageLocators.HOME_URL)
         time.sleep(1)
         self.home_page = HomePage(self.driver)
 
@@ -20,26 +19,29 @@ class TestLoginPage(TestCase):
 
     @classmethod
     def setUpClass(cls):
-        # cls.driver = webdriver.Chrome()
+        cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_login_page(self):
+    def test_login_page_ByCssSelector(self):
         login_page = self.home_page \
-            .get_my_account() \
+            .get_header() \
+            .account_dropdown \
             .click() \
             .clickLogin() \
             .set_email('testing@gmail.com') \
             .set_psw('test') \
             .click_login()
 
-        self.assertEqual(login_page.get_warning().get_message(), ' Warning: No match for E-Mail Address and/or Password.')
+        self.assertEqual(login_page.get_current_path(),
+                         'http://taqc-opencart.epizy.com/index.php?route=account/account')
+
 
     # to check the functionality of login;
-    def test_loginByCssSelectoroginByXPath(self):
+    def test_login_user_ByXPath(self):
         pass
 
-    #checkUnsuccessful method of LoginTest class - to check the functionality of unsuccessfuly login.
+    # checkUnsuccessful method of LoginTest class - to check the functionality of unsuccessful login.

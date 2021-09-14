@@ -1,7 +1,9 @@
 from selenium import webdriver
 
+from pages.header_component import HeaderComponent
 
-class BasePage():
+
+class BasePage:
     def __init__(self, driver=None):
         self.driver = driver if driver else driver.Chrome()
 
@@ -10,3 +12,6 @@ class BasePage():
 
     def get_current_path(self):
         return self.driver.current_url
+
+    def get_header(self):
+        return HeaderComponent(self.driver)

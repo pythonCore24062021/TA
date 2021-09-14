@@ -1,5 +1,3 @@
-from elements.dropdown import DropdownMyAccount
-from locators.home_page_locators import HomePageLocators
 from pages.base_page import BasePage
 
 
