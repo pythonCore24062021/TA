@@ -30,6 +30,7 @@ class RegisterUser(BasePage):
         self.passwordconfirm_input = Input(driver, RegisterPageLocators.PASSWORDCONFIRM)
         self.privacycheckmark_input = PrivacyCheckmark(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK)
         self.country_dropdown = Dropdown(driver, RegisterPageLocators.COUNTRY)
+        self.firstname_label = Label(driver, RegisterPageLocators.FIRST_NAME_LABEL)
 
 
         self.continue_btn = Button(driver, RegisterPageLocators.CONTINUEBTN)
@@ -102,3 +103,6 @@ class RegisterUser(BasePage):
         #     return self
         # except:
         #     pass
+    def get_err_firstname(self):
+        self.error = AlertDiv(self.driver, LoginPageLocators.ALERT_DIV)
+        return self.warning
