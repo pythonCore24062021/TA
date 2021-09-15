@@ -120,14 +120,30 @@ class RegisterUser(BasePage):
         self.error_firstname = Error(self.driver, RegisterPageLocators.FIRST_NAME_ERRORMESSAGE)
         return self.error
     def get_err_lastname(self):
-        self.error_firstname = Error(self.driver, RegisterPageLocators.LASTNAME_ERRORMESSAGE)
+        self.error_lastname = Error(self.driver, RegisterPageLocators.LASTNAME_ERRORMESSAGE)
         return self.error
     def get_err_email(self):
-        self.error_firstname = Error(self.driver, RegisterPageLocators.EMAIL_ERRORMESSAGE)
+        self.error_email = Error(self.driver, RegisterPageLocators.EMAIL_ERRORMESSAGE)
         return self.error
     def get_err_telephone(self):
-        self.error_firstname = Error(self.driver, RegisterPageLocators.FIRST_NAME_ERRORMESSAGE)
+        self.error_telephone = Error(self.driver, RegisterPageLocators.TELEPHONE_ERRORMESSAGE)
         return self.error
+    def get_err_address1(self):
+        self.error_address = Error(self.driver, RegisterPageLocators.ADDRESS1_ERRORMESSAGE)
+        return self.error
+    def get_err_city(self):
+        self.error_city = Error(self.driver, RegisterPageLocators.CITY_ERRORMESSAGE)
+        return self.error
+    def get_err_postcode(self):
+        self.error_postcode = Error(self.driver, RegisterPageLocators.POSTCODE_ERRORMESSAGE)
+        return self.error
+    def get_err_region(self):
+        self.error_region = Error(self.driver, RegisterPageLocators.DROPDOWN_REGION_STATE_ERRORMESSAGE)
+        return self.error
+    def get_err_password(self):
+        self.error_password = Error(self.driver, RegisterPageLocators.PASSWORD_ERRORMESSAGE)
+        return self.error
+
 
     def get_error_privacy(self):
         return self.element.text
