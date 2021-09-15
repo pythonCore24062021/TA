@@ -31,6 +31,19 @@ class RegisterUser(BasePage):
         self.privacycheckmark_input = PrivacyCheckmark(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK)
         self.country_dropdown = Dropdown(driver, RegisterPageLocators.COUNTRY)
         self.firstname_label = Label(driver, RegisterPageLocators.FIRST_NAME_LABEL)
+        self.lastname_label = Label(driver, RegisterPageLocators.LASTNAME_LABEL)
+        self.email_label = Label(driver, RegisterPageLocators.EMAIL_LABEL)
+        self.telephone_label = Label(driver, RegisterPageLocators.TELEPHONE_LABEL)
+        self.address1_label = Label(driver, RegisterPageLocators.ADDRESS1_LABEL)
+        self.city_label = Label(driver, RegisterPageLocators.CITY_LABEL)
+        self.postcode_label = Label(driver, RegisterPageLocators.POSTCODE_LABEL)
+        self.country_label = Label(driver, RegisterPageLocators.COUNTRY_LABEL)
+        self.region_label = Label(driver, RegisterPageLocators.DROPDOWN_REGION_STATE_LABEL)
+        self.passwordconfirm_label = Label(driver, RegisterPageLocators.PASSWORDCONFIRM_LABEL)
+        self.privacycheckmark_label = self.driver.find_element(*RegisterPageLocators.PRIVACYPOLICYCHECKMARK_LINK)
+        self.privacycheckmark_error = Error(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK_ERRORMESSAGE)
+
+
 
 
         self.continue_btn = Button(driver, RegisterPageLocators.CONTINUEBTN)
@@ -104,5 +117,17 @@ class RegisterUser(BasePage):
         # except:
         #     pass
     def get_err_firstname(self):
-        self.error = AlertDiv(self.driver, LoginPageLocators.ALERT_DIV)
-        return self.warning
+        self.error_firstname = Error(self.driver, RegisterPageLocators.FIRST_NAME_ERRORMESSAGE)
+        return self.error
+    def get_err_lastname(self):
+        self.error_firstname = Error(self.driver, RegisterPageLocators.LASTNAME_ERRORMESSAGE)
+        return self.error
+    def get_err_email(self):
+        self.error_firstname = Error(self.driver, RegisterPageLocators.EMAIL_ERRORMESSAGE)
+        return self.error
+    def get_err_telephone(self):
+        self.error_firstname = Error(self.driver, RegisterPageLocators.FIRST_NAME_ERRORMESSAGE)
+        return self.error
+
+    def get_error_privacy(self):
+        return self.element.text
