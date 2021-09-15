@@ -2,8 +2,8 @@ import time
 from unittest import TestCase
 
 from selenium import webdriver
-from locators.home_page_locators import HomePageLocators
-from pages.home_page import HomePage
+from HW.nnavrotska.open_cart_website.locators.home_page_locators import HomePageLocators
+from HW.nnavrotska.open_cart_website.pages.home_page import HomePage
 
 
 class TestLoginPage(TestCase):

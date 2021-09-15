@@ -1,11 +1,11 @@
 import time
 
-from elements.alert import AlertDiv
-from elements.button import Button
-from elements.input import Input
+from HW.nnavrotska.open_cart_website.elements.alert import AlertDiv
+from HW.nnavrotska.open_cart_website.elements.button import Button
+from HW.nnavrotska.open_cart_website.elements.input import Input
 
-from locators.login_page_locators import LoginPageLocators
-from pages.base_page import BasePage
+from HW.nnavrotska.open_cart_website.locators.login_page_locators import LoginPageLocators
+from HW.nnavrotska.open_cart_website.pages.base_page import BasePage
 
 
 class LoginPage(BasePage):

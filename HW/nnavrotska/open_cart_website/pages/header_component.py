@@ -1,6 +1,6 @@
-from elements.dropdown import Dropdown
-from locators.home_page_locators import HomePageLocators, HomePageLocatorsRegisteredUser
-from pages.login_page import LoginPage
+from HW.nnavrotska.open_cart_website.elements.dropdown import Dropdown
+from HW.nnavrotska.open_cart_website.locators.home_page_locators import HomePageLocators, HomePageLocatorsRegisteredUser
+# from HW.nnavrotska.open_cart_website.pages.login_page import LoginPage
 
 
 class DropdownMyAccount(Dropdown):
@@ -16,7 +16,7 @@ class DropdownMyAccount(Dropdown):
 
     def clickLogin(self):
         self.login.click()
-        return LoginPage(self.driver)
+        # return LoginPage(self.driver)
 
     def clickRegister(self):
         self.register.click()

@@ -1,6 +1,6 @@
 from selenium import webdriver
 
-from pages.header_component import HeaderComponent
+from HW.nnavrotska.open_cart_website.pages.header_component import HeaderComponent
 
 
 class BasePage:

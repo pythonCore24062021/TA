@@ -1,4 +1,4 @@
-from pages.base_page import BasePage
+from HW.nnavrotska.open_cart_website.pages.base_page import BasePage
 
 
 class AccountPage(BasePage):
