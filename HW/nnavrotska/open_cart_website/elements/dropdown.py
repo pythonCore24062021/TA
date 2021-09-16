@@ -7,3 +7,4 @@ class Dropdown(BaseElement):
 
     def select_by_value(self, value):
         self.driver.find_element_by_xpath(f""".//option[text()='{value}']""").click()
+

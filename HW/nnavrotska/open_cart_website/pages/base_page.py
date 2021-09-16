@@ -1,5 +1,3 @@
-from selenium import webdriver
-
 from HW.nnavrotska.open_cart_website.pages.header_component import HeaderComponent
 
 
@@ -15,3 +13,4 @@ class BasePage:
 
     def get_header(self):
         return HeaderComponent(self.driver)
+

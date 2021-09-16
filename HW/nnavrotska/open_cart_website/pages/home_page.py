@@ -1,4 +1,5 @@
 from HW.nnavrotska.open_cart_website.pages.base_page import BasePage
+from HW.nnavrotska.open_cart_website.pages.header_component import HeaderComponent
 
 
 class HomePage(BasePage):

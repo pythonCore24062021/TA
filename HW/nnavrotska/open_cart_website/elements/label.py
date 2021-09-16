@@ -2,4 +2,5 @@ from HW.nnavrotska.open_cart_website.elements.base import BaseElement
 
 
 class Label(BaseElement):
-    pass
+    def get_text(self):
+        return self.element.text

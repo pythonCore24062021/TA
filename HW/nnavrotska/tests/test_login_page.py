@@ -3,6 +3,7 @@ from unittest import TestCase
 
 from selenium import webdriver
 from HW.nnavrotska.open_cart_website.locators.home_page_locators import HomePageLocators
+from HW.nnavrotska.open_cart_website.pages.account_page import AccountPage
 from HW.nnavrotska.open_cart_website.pages.home_page import HomePage
 
 
@@ -31,7 +32,7 @@ class TestLoginPage(TestCase):
             .get_header() \
             .account_dropdown \
             .click() \
-            .clickLogin() \
+            .click_login() \
             .set_email('testing@gmail.com') \
             .set_psw('test') \
             .click_login()
@@ -39,8 +40,6 @@ class TestLoginPage(TestCase):
         self.assertEqual(login_page.get_current_path(),
                          'http://taqc-opencart.epizy.com/index.php?route=account/account')
 
-
-    # to check the functionality of login;
     def test_login_user_ByXPath(self):
         pass
 

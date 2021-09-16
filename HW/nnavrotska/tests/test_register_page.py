@@ -28,7 +28,7 @@ class TestRegisterPage(TestCase):
     def test_register_page(self):
         login_page = self.home_page \
             .click_my_account() \
-            .clickRegister()
+            .click_register()
 
         self.assertEqual(REGISTER_ACCOUNT_HEADER, 'Register Account')
 

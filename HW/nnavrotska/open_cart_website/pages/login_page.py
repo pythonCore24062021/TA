@@ -11,7 +11,7 @@ from HW.nnavrotska.open_cart_website.pages.base_page import BasePage
 class LoginPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
-        self.get_url(LoginPageLocators.LOGIN_URL)
+        # self.get_url(LoginPageLocators.LOGIN_URL)
         self.email_input = Input(driver, LoginPageLocators.EMAIL_INPUT)
         self.psw_input = Input(driver, LoginPageLocators.PSW_INPUT)
         self.login_btn = Button(driver, LoginPageLocators.LOGIN_BTN)
@@ -29,10 +29,6 @@ class LoginPage(BasePage):
         return self
 
     def click_login(self):
-        self.click_login()
+        self.login_btn.click()
         time.sleep(2)
-        try:
-            self.get_warning()
-            return self
-        except:
-            pass
+        return self
