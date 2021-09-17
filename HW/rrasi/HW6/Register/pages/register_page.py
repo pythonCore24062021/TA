@@ -43,7 +43,7 @@ class RegisterUser(BasePage):
         self.region_label = Label(driver, RegisterPageLocators.DROPDOWN_REGION_STATE_LABEL)
 #        self.passwordconfirm_label = Label(driver, RegisterPageLocators.PASSWORDCONFIRM_LABEL)
 #        self.privacycheckmark_label = self.driver.find_element(*RegisterPageLocators.PRIVACYPOLICYCHECKMARK_LINK)
-#        self.privacycheckmark_error = Error(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK_ERRORMESSAGE)
+#
 
 
 
