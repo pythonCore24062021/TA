@@ -41,9 +41,9 @@ class RegisterUser(BasePage):
         self.postcode_label = Label(driver, RegisterPageLocators.POSTCODE_LABEL)
         self.country_label = Label(driver, RegisterPageLocators.COUNTRY_LABEL)
         self.region_label = Label(driver, RegisterPageLocators.DROPDOWN_REGION_STATE_LABEL)
-        self.passwordconfirm_label = Label(driver, RegisterPageLocators.PASSWORDCONFIRM_LABEL)
-        self.privacycheckmark_label = self.driver.find_element(*RegisterPageLocators.PRIVACYPOLICYCHECKMARK_LINK)
-        self.privacycheckmark_error = Error(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK_ERRORMESSAGE)
+#        self.passwordconfirm_label = Label(driver, RegisterPageLocators.PASSWORDCONFIRM_LABEL)
+#        self.privacycheckmark_label = self.driver.find_element(*RegisterPageLocators.PRIVACYPOLICYCHECKMARK_LINK)
+#        self.privacycheckmark_error = Error(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK_ERRORMESSAGE)
 
 
 
