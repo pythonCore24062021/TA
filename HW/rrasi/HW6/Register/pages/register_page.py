@@ -11,6 +11,8 @@ from Register.elements.successmessage import Message
 #from HW.rrasi.HW6.Register.elements.checkmark import PrivacyCheckmark
 #import HW.rrasi.HW6.Register.elements.dropdown
 from Register.elements.dropdown import Dropdown
+from Register.elements.errors_required_fields import Error
+from Register.elements.label import Label
 
 
 class RegisterUser(BasePage):
@@ -118,7 +120,7 @@ class RegisterUser(BasePage):
         #     pass
     def get_err_firstname(self):
         self.error_firstname = Error(self.driver, RegisterPageLocators.FIRST_NAME_ERRORMESSAGE)
-        return self.error
+        return self.error_firstname
     def get_err_lastname(self):
         self.error_lastname = Error(self.driver, RegisterPageLocators.LASTNAME_ERRORMESSAGE)
         return self.error

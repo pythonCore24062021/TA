@@ -31,12 +31,11 @@ class RegisterPageLocators:
 #    COUNTRY_ERRORMESSAGE = (By.CSS_SELECTOR, '//*[@id="input-country"]')
     COUNTRYOPTION = (By.XPATH, '//*[@id="input-country"]/option[2]')
     REGION = (By.ID, 'input-zone')
-    REGION = (By.CSS_SELECTOR, 'input-zone')
 
     REGION_OPTION_Albania = (By.XPATH, '//*[@id="input-zone"]/option[2]')
     PASSWORD = (By.XPATH, '//*[@id="input-password"]')
     PASSWORD_LABEL = (By.CSS_SELECTOR, '#content > form > fieldset:nth-child(3) > div.form-group.required.has-error > label')
-    PASSWORD_ERRORMESSAGE = (By.By.XPATH, '//*[@class="text-danger" and contains(text(),"Password must be between 4 and 20 characters!")]')
+    PASSWORD_ERRORMESSAGE = (By.XPATH, '//*[@class="text-danger" and contains(text(),"Password must be between 4 and 20 characters!")]')
     PASSWORDCONFIRM = (By.XPATH, '//*[@id="input-confirm"]')
     PASSWORDCONFIRM_LABEL = (By.CSS_SELECTOR, '//*[@id="content"]/form/fieldset[3]/div[2]/label')
     PASSWORDCONFIRM_ERRORMESSAGE = (By.XPATH, '//*[@class="text-danger" and contains(text(),"Password confirmation does not match password!")]')
