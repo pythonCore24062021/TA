@@ -36,3 +36,12 @@ class RegisterPage(unittest.TestCase):
             .click_continue()
 
         self.assertEqual(register_page.get_err_firstname().get_error(), 'First Name must be between 1 and 32 characters!')
+
+    def test_required_fields_reg_user(self):
+        register_page = self.home.get_header()\
+            .account_dropdown\
+            .click()\
+            .clickRegister() \
+            .click_continue()
+
+        self.assertTrue(register_page.get_errors_all_required_fields())
