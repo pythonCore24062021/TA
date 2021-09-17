@@ -5,18 +5,21 @@ Tests related to Register functionality
 import unittest
 from selenium import webdriver
 from pages.home_page import HomePage
+from utils.data_manager import Credentials
 
 import time
 
-email = 'JDoe' + str(round(time.time() * 1000)), '@gmail.com'
-password = '1234567'
+"""Getting test data from Google sheet"""
+credentials = Credentials("1rr1dzPSwa6qx6jarzbtXdWBSg5DsNsknmn2dWckmnvk")
+email = credentials.get_register_email() + str(round(time.time() * 1000)), '@gmail.com'
+password = credentials.get_register_password()
 
 
 class TestRegister(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """Go to test page and maximize window"""
-        cls.driver = webdriver.Chrome("C:\dev\Python\TA with Python - SoftServe\chromedriver\chromedriver.exe")
+        cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
         cls.driver.implicitly_wait(15)
 

@@ -1,7 +1,7 @@
 from pages.base_page import BasePage
-from elements.input import Input
-from elements.button import Button
-from locators.login_page_locators import LoginPageLocators
+from Elements.input import Input
+from Elements.button import Button
+from Locators.login_page_locators import LoginPageLocators
 
 
 class LoginPage(BasePage):

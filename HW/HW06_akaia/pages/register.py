@@ -1,9 +1,9 @@
 from pages.base_page import BasePage
-from locators.register_page_locators import RegisterPageLocators
-from elements.input import Input
-from elements.button import Button
-from elements.checkbox import CheckBox
-import elements.dropdown
+from Locators.register_page_locators import RegisterPageLocators
+from Elements.input import Input
+from Elements.button import Button
+from Elements.checkbox import CheckBox
+import Elements.dropdown
 
 
 class RegisterPage(BasePage):
@@ -16,7 +16,7 @@ class RegisterPage(BasePage):
         self.address_input = Input(self.driver, RegisterPageLocators.INPUT_ADDRESS_ONE)
         self.city_input = Input(self.driver, RegisterPageLocators.INPUT_CITY)
         self.post_code_input = Input(self.driver, RegisterPageLocators.INPUT_POST_CODE)
-        self.region_state_dropdown = elements.dropdown.DropdownRegionState(self.driver, RegisterPageLocators.DROPDOWN_REGION_STATE)
+        self.region_state_dropdown = Elements.dropdown.DropdownRegionState(self.driver, RegisterPageLocators.DROPDOWN_REGION_STATE)
         self.password_input = Input(self.driver, RegisterPageLocators.INPUT_PASSWORD)
         self.password_confirm_input = Input(self.driver, RegisterPageLocators.INPUT_PASSWORD_CONFIRM)
         self.checkbox_privacy = CheckBox(self.driver, RegisterPageLocators.CHECKBOX_PRIVACY)

@@ -1,7 +1,7 @@
 from pages.base_page import BasePage
-from elements.dropdown import DropdownMyAccount
-from locators.home_page_locators import HomePageLocators
-from elements.button import Button
+from Elements.dropdown import DropdownMyAccount
+from Locators.home_page_locators import HomePageLocators
+from Elements.button import Button
 from pages.register import RegisterPage
 
 

@@ -1,4 +1,4 @@
-from elements.base import BaseElement
+from Elements.base import BaseElement
 
 
 class CheckBox(BaseElement):

@@ -4,14 +4,20 @@ Tests related to Login functionality
 
 import unittest
 from selenium import webdriver
-from pages.home_page import HomePage
+from HW.HW06_akaia.pages.home_page import HomePage
+from utils.data_manager import Credentials
+
+"""Getting test data from google sheet"""
+credentials = Credentials("1rr1dzPSwa6qx6jarzbtXdWBSg5DsNsknmn2dWckmnvk")
+email = credentials.get_existing_email()
+password = credentials.get_existing_password()
 
 
 class TestLogin(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         """Go to test page and maximize window"""
-        cls.driver = webdriver.Chrome("C:\dev\Python\TA with Python - SoftServe\chromedriver\chromedriver.exe")
+        cls.driver = webdriver.Chrome()
         cls.driver.maximize_window()
         cls.driver.implicitly_wait(15)
 
@@ -35,8 +41,8 @@ class TestLogin(unittest.TestCase):
             get_my_account().\
             click().\
             click_login().\
-            set_email('JDoe1631106589783@gmail.com').\
-            set_password('1234567').\
+            set_email(email).\
+            set_password(password).\
             click_login_button()
 
         self.assertEqual(login_page.get_current_url(), "http://taqc-opencart.epizy.com/index.php?route=account/account")
