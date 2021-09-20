@@ -28,11 +28,23 @@ class RegisterPage(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_confirm_password_error(self):
+    def test_first_reg_user(self):
         register_page = self.home.get_header()\
             .account_dropdown\
             .click()\
             .clickRegister() \
-            .click_continue()\
-            .get_err_firstname()
-        self.assertEqual(register_page.get_err_firstname().get_error(), 'First Name must be between 1 and 32 characters!')
+            .set_firstname("Popandopalo2") \
+            .set_lastname("Test2") \
+            .set_email(f"rul+{int(time.time())}@gmail.com") \
+            .set_telephone("55555") \
+            .set_address("street") \
+            .set_city("Lviv") \
+            .set_postcode("79000") \
+            .set_country("Ukraine") \
+            .set_region("Kyiv") \
+            .set_password("789456") \
+            .set_passwordconfirm("789455") \
+            .set_privacycheckmark() \
+            .click_continue()
+
+        self.assertEqual(register_page.get_err_password().get_error(), 'Password confirmation does not match password!')
