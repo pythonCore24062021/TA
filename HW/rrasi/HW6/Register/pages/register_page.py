@@ -157,7 +157,13 @@ class RegisterUser(BasePage):
 
     def get_errors_all_required_fields(self):
         listfields = self.driver.find_elements_by_xpath('.//div[@class = "text-danger"]')
+        err_list = []
+
+
         for e in listfields:
-            isRequired = e.get_attribute("form-group required has-error")
-            if isRequired != "":
-                return Exception("Warning message was not displayed properly")
+            err_list.append(Error(self.driver, element=e))
+
+            # isRequired = e.get_attribute("form-group required has-error")
+            # if isRequired != "":
+            #     return Exception("Warning message was not displayed properly")
+        return err_list
