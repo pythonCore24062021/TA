@@ -47,4 +47,3 @@ class RegisterPage(unittest.TestCase):
             .set_privacycheckmark() \
             .click_continue()
 
-        self.assertEqual(register_page.get_err_password().get_error(), 'Password confirmation does not match password!')
