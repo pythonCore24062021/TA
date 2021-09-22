@@ -1,5 +1,6 @@
 import datetime
 import logging
+from pathlib import Path
 
 from framework.system._system_settings import SYSTEM_LOG_LEVEL
 
@@ -16,8 +17,10 @@ _log_format = f"%(asctime)s - [%(levelname)s] - %(name)s - (%(filename)s).%(func
 #     "NOTSET": logging.NOTSET
 # }
 
+
 def get_file_handler():
-    file_handler = logging.FileHandler(f"{datetime.date.today()}.log")
+    root_dir = Path(__file__).parent.parent.parent
+    file_handler = logging.FileHandler(f"{root_dir}\\logs\\{datetime.date.today()}.log")
     file_handler.setLevel(SYSTEM_LOG_LEVEL)
     file_handler.setFormatter(logging.Formatter(_log_format))
     return file_handler
