@@ -167,3 +167,10 @@ class RegisterUser(BasePage):
             # if isRequired != "":
             #     return Exception("Warning message was not displayed properly")
         return err_list
+
+    def get_check_colour(colour):
+        colour == "#F00"
+        colour.check_colour = Label(colour.driver, RegisterPageLocators.FIRST_NAME_LABEL)
+        return colour.check_colour
+
+#    element.value_of_css_property("font-size")
