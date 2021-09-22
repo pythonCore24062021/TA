@@ -147,8 +147,8 @@ class RegisterUser(BasePage):
         return self.error_password
 
     def get_err_confirm_password(self):
-        self.error_confirm_password = Error(self.driver, RegisterPageLocators.PASSWORD_ERRORMESSAGE)
-        return self.error_password
+        self.error_confirm_password = Error(self.driver, RegisterPageLocators.PASSWORDCONFIRM_ERRORMESSAGE)
+        return self.error_confirm_password
 
 
     def get_error_privacy(self):
