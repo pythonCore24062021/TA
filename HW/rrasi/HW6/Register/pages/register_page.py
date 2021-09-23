@@ -13,6 +13,8 @@ from Register.elements.successmessage import Message
 from Register.elements.dropdown import Dropdown
 from Register.elements.errors_required_fields import Error
 from Register.elements.label import Label
+from selenium.webdriver.support.color import Color
+
 
 
 class RegisterUser(BasePage):
@@ -168,9 +170,13 @@ class RegisterUser(BasePage):
             #     return Exception("Warning message was not displayed properly")
         return err_list
 
-    def get_check_colour(colour):
-        colour == "#F00"
-        colour.check_colour = Label(colour.driver, RegisterPageLocators.FIRST_NAME_LABEL)
-        return colour.check_colour
+    def get_check_colour(self, color):
+        color == "#F00"
+        color.check_colour = Label(color.driver, RegisterPageLocators.FIRST_NAME_LABEL)
+        return color.check_colour
 
-#    element.value_of_css_property("font-size")
+    def get_color(self, find_element_by_class_name=None):
+        rgb = find_element_by_class_name("col-sm-2 control-label").value_of_css_property('color')
+        self.driver.rgb.text()
+        hex = Color.from_string(rgb).hex
+#        color = "# F00"

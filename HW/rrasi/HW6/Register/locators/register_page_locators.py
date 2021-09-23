@@ -46,3 +46,4 @@ class RegisterPageLocators:
     CONTINUEBTN = (By.XPATH, './/input[@class="btn btn-primary"]')
     SUCCESSMESSAGE = (By.XPATH, '//*[@id="content"]/h1')
 
+
