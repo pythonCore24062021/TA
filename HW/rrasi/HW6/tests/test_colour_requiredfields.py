@@ -31,11 +31,11 @@ class RegisterPage(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_color_reuqired_fields(self):
+    def test_color_required_fields(self):
         register_page = self.home.get_header()\
             .account_dropdown\
             .click()\
             .clickRegister() \
             .click_continue()
 
-        self.assertEqual(register_page.get_color, '#F00')
+        self.assertEqual(register_page.get_check_colour, '#F00')

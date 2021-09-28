@@ -170,15 +170,7 @@ class RegisterUser(BasePage):
             #     return Exception("Warning message was not displayed properly")
         return err_list
 
-    def get_check_colour(self, color):
-        color == "#F00"
-        color.check_colour = Label(color.driver, RegisterPageLocators.FIRST_NAME_LABEL)
-        return color.check_colour
-
-    def get_color(self, find_element_by_class_name=None):
-        rgb = find_element_by_class_name("col-sm-2 control-label").value_of_css_property('color')
-        self.driver.rgb.text()
-        hex = Color.from_string(rgb).hex
-        return self
-        print(hex)
-        color = "# F00"
+    def get_check_colour(self, get_color=None):
+#        color == "#F00"
+       check_colour_firstname = Color(get_color.driver, RegisterPageLocators.FIRST_NAME_LABEL)
+       return get_color.check_colour_firstname
