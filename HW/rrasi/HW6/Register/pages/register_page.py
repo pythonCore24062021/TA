@@ -179,4 +179,6 @@ class RegisterUser(BasePage):
         rgb = find_element_by_class_name("col-sm-2 control-label").value_of_css_property('color')
         self.driver.rgb.text()
         hex = Color.from_string(rgb).hex
-#        color = "# F00"
+        return self
+        print(hex)
+        color = "# F00"
