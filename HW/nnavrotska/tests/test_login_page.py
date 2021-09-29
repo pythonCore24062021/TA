@@ -3,7 +3,6 @@ from unittest import TestCase
 
 from selenium import webdriver
 from HW.nnavrotska.open_cart_website.locators.home_page_locators import HomePageLocators
-from HW.nnavrotska.open_cart_website.pages.account_page import AccountPage
 from HW.nnavrotska.open_cart_website.pages.home_page import HomePage
 
 
@@ -27,7 +26,7 @@ class TestLoginPage(TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
-    def test_login_page_ByCssSelector(self):
+    def test_check_successful_login_ByCssSelector(self):
         login_page = self.home_page \
             .get_header() \
             .account_dropdown \
@@ -39,8 +38,3 @@ class TestLoginPage(TestCase):
 
         self.assertEqual(login_page.get_current_path(),
                          'http://taqc-opencart.epizy.com/index.php?route=account/account')
-
-    def test_login_user_ByXPath(self):
-        pass
-
-    # checkUnsuccessful method of LoginTest class - to check the functionality of unsuccessful login.
