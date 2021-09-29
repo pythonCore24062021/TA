@@ -38,4 +38,4 @@ class RegisterPage(unittest.TestCase):
             .clickRegister() \
             .click_continue()
 
-        self.assertEqual(register_page.get_check_colour, '#F00')
+        self.assertEqual(register_page.get_colour_firstname, '#F00')

@@ -170,7 +170,7 @@ class RegisterUser(BasePage):
             #     return Exception("Warning message was not displayed properly")
         return err_list
 
-    def get_check_colour(self, get_color=None):
+    def get_colour_firstname(self, get_text_color=None):
 #        color == "#F00"
-       check_colour_firstname = Color(get_color.driver, RegisterPageLocators.FIRST_NAME_LABEL)
-       return get_color.check_colour_firstname
+       check_colour_firstname = Color(get_text_color.driver, RegisterPageLocators.FIRST_NAME_LABEL)
+       return get_text_color.check_colour_firstname

@@ -24,5 +24,5 @@ class BookService:
 class AuthorService:
     staticmethod
 
-    def get_all() -> Book:
+    def get_all(self) -> Book:
         return SESSION.query(Author).all()
