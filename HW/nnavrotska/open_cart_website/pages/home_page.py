@@ -24,18 +24,18 @@ class HomePage(BasePage):
         tax_price = Label(self.driver, HomePageLocators.TAX_PRICE)
         return tax_price.get_text()
 
-    # def check_all_price_class_name(self):
-    #     price_class_name = Label(self.driver, *HomePageLocators.PRICE_CLASS_NAME)
-    #     return price_class_name.get_text()
-    #
-    # def check_all_price_new_class_name(self):
-    #     price_new_class_name = Label(self.driver, *HomePageLocators.PRICE_NEW_CLASS_NAME)
-    #     return price_new_class_name.get_text()
-    #
-    # def check_all_price_old_class_name(self):
-    #     price_old_class_name = Label(self.driver, *HomePageLocators.PRICE_OLD_CLASS_NAME)
-    #     return price_old_class_name.get_text()
-    #
-    # def check_all_price_tax_class_name(self):
-    #     price_tax_class_name = Label(self.driver, *HomePageLocators.PRICE_TAX_CLASS_NAME)
-    #     return price_tax_class_name.get_text()
+    def check_all_price_class_name(self):
+        price_class_name = Label(self.driver, HomePageLocators.PRICE_CLASS_NAME)
+        return price_class_name.get_text()
+
+    def check_all_price_new_class_name(self):
+        price_new_class_name = Label(self.driver, HomePageLocators.PRICE_NEW_CLASS_NAME)
+        return price_new_class_name.get_text()
+
+    def check_all_price_old_class_name(self):
+        price_old_class_name = Label(self.driver, HomePageLocators.PRICE_OLD_CLASS_NAME)
+        return price_old_class_name.get_text()
+
+    def check_all_price_tax_class_name(self):
+        price_tax_class_name = Label(self.driver, HomePageLocators.PRICE_TAX_CLASS_NAME)
+        return price_tax_class_name.get_text()

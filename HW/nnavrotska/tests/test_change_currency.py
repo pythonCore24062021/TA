@@ -2,6 +2,7 @@ import time
 from unittest import TestCase
 from selenium import webdriver
 
+from HW.nnavrotska.open_cart_website.elements.label import Label
 from HW.nnavrotska.open_cart_website.pages.home_page import HomePage
 
 
@@ -35,18 +36,10 @@ class CheckCurrencyChange(TestCase):
         self.assertIn('€', self.home_page.get_cart_btn())
         self.assertIn('€', self.home_page.get_product_price())
         self.assertIn('€', self.home_page.get_tax_price())
-
-        # for element in self.home_page.check_all_price_class_name():
-        #     self.asserIn('€', element.text)
-        #
-        # for element in self.home_page.check_all_price_new_class_name():
-        #     self.asserIn('€', element.text)
-        #
-        # for element in self.home_page.check_all_price_old_class_name():
-        #     self.asserIn('€', element.text)
-        #
-        # for element in self.home_page.check_all_price_tax_class_name():
-        #     self.asserIn('€', element.text)
+        self.assertIn('€', self.home_page.check_all_price_class_name())
+        self.assertIn('€', self.home_page.check_all_price_new_class_name())
+        self.assertIn('€', self.home_page.check_all_price_old_class_name())
+        self.assertIn('€', self.home_page.check_all_price_tax_class_name())
 
     def test_checkCurrencyChange_pound(self):
         self.home_page \
@@ -59,6 +52,10 @@ class CheckCurrencyChange(TestCase):
         self.assertIn('£', self.home_page.get_cart_btn())
         self.assertIn('£', self.home_page.get_product_price())
         self.assertIn('£', self.home_page.get_tax_price())
+        self.assertIn('£', self.home_page.check_all_price_class_name())
+        self.assertIn('£', self.home_page.check_all_price_new_class_name())
+        self.assertIn('£', self.home_page.check_all_price_old_class_name())
+        self.assertIn('£', self.home_page.check_all_price_tax_class_name())
 
     def test_checkCurrencyChange_dollar(self):
         self.home_page \
@@ -71,3 +68,7 @@ class CheckCurrencyChange(TestCase):
         self.assertIn('$', self.home_page.get_cart_btn())
         self.assertIn('$', self.home_page.get_product_price())
         self.assertIn('$', self.home_page.get_tax_price())
+        self.assertIn('$', self.home_page.check_all_price_class_name())
+        self.assertIn('$', self.home_page.check_all_price_new_class_name())
+        self.assertIn('$', self.home_page.check_all_price_old_class_name())
+        self.assertIn('$', self.home_page.check_all_price_tax_class_name())
