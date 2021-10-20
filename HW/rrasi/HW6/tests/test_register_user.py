@@ -1,4 +1,3 @@
-
 import time
 import unittest
 
@@ -46,7 +45,7 @@ class RegisterPage(unittest.TestCase):
             .set_password("789456") \
             .set_passwordconfirm("789456") \
             .set_privacycheckmark() \
- \
             .click_continue()
 
         self.assertEqual(register_page.get_successmessage().get_message(), 'Your Account Has Been Created!')
+

@@ -11,6 +11,10 @@ from Register.elements.successmessage import Message
 #from HW.rrasi.HW6.Register.elements.checkmark import PrivacyCheckmark
 #import HW.rrasi.HW6.Register.elements.dropdown
 from Register.elements.dropdown import Dropdown
+from Register.elements.errors_required_fields import Error
+from Register.elements.label import Label
+from selenium.webdriver.support.color import Color
+
 
 
 class RegisterUser(BasePage):
@@ -30,6 +34,20 @@ class RegisterUser(BasePage):
         self.passwordconfirm_input = Input(driver, RegisterPageLocators.PASSWORDCONFIRM)
         self.privacycheckmark_input = PrivacyCheckmark(driver, RegisterPageLocators.PRIVACYPOLICYCHECKMARK)
         self.country_dropdown = Dropdown(driver, RegisterPageLocators.COUNTRY)
+        self.firstname_label = Label(driver, RegisterPageLocators.FIRST_NAME_LABEL)
+        self.lastname_label = Label(driver, RegisterPageLocators.LASTNAME_LABEL)
+        self.email_label = Label(driver, RegisterPageLocators.EMAIL_LABEL)
+        self.telephone_label = Label(driver, RegisterPageLocators.TELEPHONE_LABEL)
+        self.address1_label = Label(driver, RegisterPageLocators.ADDRESS1_LABEL)
+        self.city_label = Label(driver, RegisterPageLocators.CITY_LABEL)
+        self.postcode_label = Label(driver, RegisterPageLocators.POSTCODE_LABEL)
+        self.country_label = Label(driver, RegisterPageLocators.COUNTRY_LABEL)
+        self.region_label = Label(driver, RegisterPageLocators.DROPDOWN_REGION_STATE_LABEL)
+#        self.passwordconfirm_label = Label(driver, RegisterPageLocators.PASSWORDCONFIRM_LABEL)
+#        self.privacycheckmark_label = self.driver.find_element(*RegisterPageLocators.PRIVACYPOLICYCHECKMARK_LINK)
+#
+
+
 
 
         self.continue_btn = Button(driver, RegisterPageLocators.CONTINUEBTN)
@@ -102,3 +120,57 @@ class RegisterUser(BasePage):
         #     return self
         # except:
         #     pass
+    def get_err_firstname(self):
+        self.error_firstname = Error(self.driver, RegisterPageLocators.FIRST_NAME_ERRORMESSAGE)
+        return self.error_firstname
+    def get_err_lastname(self):
+        self.error_lastname = Error(self.driver, RegisterPageLocators.LASTNAME_ERRORMESSAGE)
+        return self.error
+    def get_err_email(self):
+        self.error_email = Error(self.driver, RegisterPageLocators.EMAIL_ERRORMESSAGE)
+        return self.error
+    def get_err_telephone(self):
+        self.error_telephone = Error(self.driver, RegisterPageLocators.TELEPHONE_ERRORMESSAGE)
+        return self.error
+    def get_err_address1(self):
+        self.error_address = Error(self.driver, RegisterPageLocators.ADDRESS1_ERRORMESSAGE)
+        return self.error
+    def get_err_city(self):
+        self.error_city = Error(self.driver, RegisterPageLocators.CITY_ERRORMESSAGE)
+        return self.error
+    def get_err_postcode(self):
+        self.error_postcode = Error(self.driver, RegisterPageLocators.POSTCODE_ERRORMESSAGE)
+        return self.error
+    def get_err_region(self):
+        self.error_region = Error(self.driver, RegisterPageLocators.DROPDOWN_REGION_STATE_ERRORMESSAGE)
+        return self.error
+    def get_err_password(self):
+        self.error_password = Error(self.driver, RegisterPageLocators.PASSWORD_ERRORMESSAGE)
+        return self.error_password
+
+    def get_err_confirm_password(self):
+        self.error_confirm_password = Error(self.driver, RegisterPageLocators.PASSWORDCONFIRM_ERRORMESSAGE)
+        return self.error_confirm_password
+
+
+    def get_error_privacy(self):
+        return self.element.text
+
+
+    def get_errors_all_required_fields(self):
+        listfields = self.driver.find_elements_by_xpath('.//div[@class = "text-danger"]')
+        err_list = []
+
+
+        for e in listfields:
+            err_list.append(Error(self.driver, element=e))
+
+            # isRequired = e.get_attribute("form-group required has-error")
+            # if isRequired != "":
+            #     return Exception("Warning message was not displayed properly")
+        return err_list
+
+    def get_colour_firstname(self, get_text_color=None):
+#        color == "#F00"
+       check_colour_firstname = Color(get_text_color.driver, RegisterPageLocators.FIRST_NAME_LABEL)
+       return get_text_color.check_colour_firstname

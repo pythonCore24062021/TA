@@ -14,7 +14,7 @@ books_table = Table('books', metadata,
 
 DB_NAME = 'TAQC'
 USER = 'postgres'
-PASSWORD = 'root'
+PASSWORD = 'HeckfyfHfczr#1511'
 HOST = 'localhost'
 PORT = '5432'
 engine = create_engine(f'postgresql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DB_NAME}')

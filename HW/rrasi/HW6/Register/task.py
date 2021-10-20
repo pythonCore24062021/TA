@@ -6,3 +6,4 @@
 #- RegisterTest class - to check the functionality of sign up;
 #- User class - to send parameters of checkRegister method of RegisterTest class;
 #- checkUnsuccessful method of LoginTest class - to check the functionality of unsuccessfuly login.
+# git push origin rusya
