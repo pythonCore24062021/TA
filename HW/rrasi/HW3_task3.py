@@ -1,1 +1,0 @@
-#- addToCartByXPath - to check the functionality of adding items to cart;

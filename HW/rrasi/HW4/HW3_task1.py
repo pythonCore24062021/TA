@@ -52,5 +52,4 @@ class PythonOrgSearch(unittest.TestCase):
         login_btn.click()
         my_acount = self.driver.find_element_by_xpath(".//h2[1]")
         self.assertEqual(my_acount.text, 'My Account')
-#check_currency_change = self.driver.find_element_by_css_selector("#cart-total")
-#        self.assertEqual(check_currency_change.text, "0 item(s) - £0.00")
+
