@@ -29,6 +29,8 @@ class PythonOrgSearch(unittest.TestCase):
     def tearDownClass(cls):
         cls.driver.quit()
 
+
+
     def test_first_reg_user(self):
         my_acount_btm = self.driver.find_element_by_css_selector(
             "#top-links > ul > li.dropdown > a > span.hidden-xs.hidden-sm.hidden-md"

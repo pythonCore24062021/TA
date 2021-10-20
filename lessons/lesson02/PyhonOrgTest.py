@@ -35,7 +35,7 @@ class PythonOrgSearch(unittest.TestCase):
         element = self.driver.find_element_by_id("id-search-field")
         element.send_keys("python22222fff")
         element.send_keys(Keys.ENTER)
-        self.assertIn("No results found.", self.driver.page_source)
+        self.assertIn("No results found", self.driver.page_source)
 
     def test_search21(self):
         element = self.driver.find_element_by_id("id-search-field")

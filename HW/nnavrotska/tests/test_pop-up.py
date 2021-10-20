@@ -1,0 +1,1 @@
+# closePopup method - to check and close the pop-up web element, if it is exist on page;

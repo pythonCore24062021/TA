@@ -30,7 +30,7 @@ class TestLoginPage(unittest.TestCase):
         login_page = self.home \
             .get_my_account() \
             .click() \
-            .clickLogin() \
+            .click_login() \
             .set_email("testEmail") \
             .set_password("testPasword") \
             .click_login()
