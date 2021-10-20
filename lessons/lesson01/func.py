@@ -5,3 +5,7 @@ def my_sum(*args):
     else:
         return 1
 
+
+from selenium.webdriver import Chrome
+
+driver = Chrome()
